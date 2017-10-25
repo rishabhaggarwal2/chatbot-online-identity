@@ -1,0 +1,227 @@
+body, html, * {
+	margin: 0;
+	padding: 0;
+	font-family: Lato;
+	font-weight: 400;
+	font-size: 16px;
+	transition: 0.5s ease all;
+}
+
+body {
+	background: #fff;
+	color: #000;
+	line-height: 1.5;
+}
+
+.chat__container {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	margin: auto;
+	padding-top: 120px;
+	max-width: 800px;
+	padding-bottom: 140px;
+}
+
+.chat__bubbles {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 100%;
+	flex: 1 1 auto;
+}
+
+.chat__bubble {
+	background: #ECECEC;
+	margin: 2px;
+	padding: 8px 15px;
+	border-radius: 25px;
+	position: relative;
+	max-width: 60%;
+	word-wrap: break-word;
+}
+
+.chat__bubble img {
+	width: 100%;
+}
+
+.chat__bubble__to {
+	position: relative;
+	align-self: flex-end;
+	background: #2599F9;
+	color: #fff;
+}
+
+.chat__bubble__from:last-child::before {
+	content: '';
+	height: 32px;
+	width: 32px;
+	background: url('headshot.jpg') center center;
+	position: absolute;
+	left: -36px;
+	bottom: 0;
+	border-radius: 50%;
+	background-size: contain;
+}
+
+.chat__bubble__to:last-child::after {
+	content: '';
+	height: 32px;
+	width: 32px;
+	/* background: url('https://randomuser.me/api/portraits/men/9.jpg') center center; */
+	background: #ccc;
+	position: absolute;
+	right: -36px;
+	bottom: 0;
+	border-radius: 50%;
+	background-size: contain;
+}
+
+.chat__bubble__loading {
+	color: transparent;
+}
+
+@keyframes mymove {
+    0% {transform: translateY(0);}
+    40% {transform: translateY(-8px);}
+    80% {transform: translateY(0);}
+    99% {transform: translateY(0);}
+}
+
+.chat__bubble__loading_dot {
+	height: 8px;
+	width: 8px;
+	display: inline-block;
+	margin: 0 2px;
+	background: #333;
+	border-radius: 50%;
+	animation: mymove 2s ease infinite;
+}
+
+.chat__bubble__loading_dot:nth-child(2) {
+	animation-delay: 0.2s;
+}
+
+.chat__bubble__loading_dot:nth-child(3) {
+	animation-delay: 0.4s;
+}
+
+.chat__input__container {
+    width: 100%;
+    padding-top: 60px;
+    position: fixed;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    opacity: 1;
+    padding-bottom: 5%;
+}
+
+.chat__input {
+	display: flex;
+    width: 80%;
+    margin: auto;
+    max-width: 800px;
+    left: 10%;
+    bottom: 0px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.chat__input__div {
+	font-family: Lato;
+    line-height: 1.5;
+    padding: 8px 15px;
+    border-radius: 100px;
+    outline: none !important;
+    border: none;
+    box-shadow: 0px 0px 5px rgba(151, 151, 151, 0.3);
+    margin: 0 10px 10px 10px;
+    cursor: pointer;
+}
+
+.chat__input__field {
+	width: 50%;
+	cursor: text;
+	transform: scale(1);
+}
+
+.chat__input__text {
+	color: #fff;
+	background: #2599F9;
+	padding: 8px 20px;
+	transform: scale(1);
+}
+
+.chat__input__icon {
+	color: #fff;
+	background: #2599F9;
+	padding: 8px 14px;
+	transform: scale(1);
+}
+
+.chat__input__icon img {
+	position: relative;
+	top: 1px;
+	left: 0px;
+	width: 86%;
+}
+
+.chat__input__text:hover, .chat__input__icon:hover, .chat__input__field:hover {
+	transform: scale(1.05);
+}
+
+.chat__input__text:link, .chat__input__icon:link, .chat__input__text:active, .chat__input__icon:active, .chat__input__text:focus, .chat__input__icon:focus, .chat__input__field:link
+.chat__input__field:active
+.chat__input__field:focus {
+	transform: scale(0.95);
+}
+
+.chat__input__container.ng-hide {
+  bottom: -10%;
+  opacity: 0;
+}
+
+.chat__input__container.ng-hide-add {
+  transition: all linear 0.5s;
+}
+
+.chat__input__container.ng-hide-remove {
+	transition: all linear 0.5s;
+  transition-delay: 1s;
+}
+body{
+	height: 100%;
+	background: #fff;
+}
+.box {
+    overflow: hidden;
+    height: auto;
+    position: relative;
+    display: flex;
+    width: 100%;
+    background: #fff;
+}
+.box.collapse {
+	height: 0vh;
+}
+
+.lecture {
+	font-family: Courier;
+	color: #CCCCCC;
+	background: #000000;
+	border: 3px double #CCCCCC;
+	padding: 20px;
+	width: 80%;
+	max-width: 800px;
+	margin: auto;
+	height: 80vh;
+	max-height: 400px;
+	margin-top: 100px;
+}
+
+.lecture span {
+	font-family: Courier;
+    color: #CCCCCC;
+}

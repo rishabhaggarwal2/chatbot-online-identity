@@ -1,0 +1,98 @@
+<!-- Comething user friendly that tries to initiate conversation online-->
+<!-- Dark UX Patterns, Cyber Bullying, Online Privacy, Cyber Theft, Online Trust -->
+<!DOCTYPE html>
+<html ng-app="identityApp">
+<head>
+	<title>Rishabh | Personal Website</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-animate.js"></script>
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.js"
+	  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+	  crossorigin="anonymous"></script>
+	  <script type="text/javascript" src="typed.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body ng-controller="IdentityController">
+<div class="box" ng-class="{collapse: collapse}">
+	<div class="chat__container">
+		{{identity.conversation}}
+		<div class="chat__bubbles" ng-repeat="conversation in conversation">
+			<div class="chat__bubble" ng-repeat="message in conversation.messages" ng-class="{chat__bubble__from: conversation.sender === 'rishabh', chat__bubble__to: conversation.sender === 'other'}">
+				{{message}}
+			</div>
+			<div class="chat__bubble" ng-if="conversation.media" ng-repeat="media in conversation.media" ng-class="{chat__bubble__from: conversation.sender === 'rishabh', chat__bubble__to: conversation.sender === 'other'}">
+				<img ng-src="{{media}}">
+			</div>
+			<div class="chat__bubble chat__bubble__from chat__bubble__loading" ng-if="conversation.writing">
+				<div class="chat__bubble__loading_dot">
+				</div>
+				<div class="chat__bubble__loading_dot">
+				</div>
+				<div class="chat__bubble__loading_dot">
+				</div>
+			</div>
+
+			<div class="chat__bubble chat__bubble__to chat__bubble__loading" ng-if="conversation.writing && conversation.sender === 'other'">
+				<div class="chat__bubble__loading_dot">
+				</div>
+				<div class="chat__bubble__loading_dot">
+				</div>
+				<div class="chat__bubble__loading_dot">
+				</div>
+			</div>
+
+			<!-- <div class="chat__bubble chat__bubble__from">
+				My name is Rishabh!
+			</div> -->
+		</div>
+		<!-- <div class="chat__bubbles">
+		<div class="chat__bubble chat__bubble__to">
+				Hello Rishabh
+			</div>
+			<div class="chat__bubble chat__bubble__to">
+				My name is Rajni
+			</div>
+		</div>
+		<div class="chat__bubbles">
+			<div class="chat__bubble chat__bubble__from chat__bubble__loading">
+				<div class="chat__bubble__loading_dot">
+				</div>
+				<div class="chat__bubble__loading_dot">
+				</div>
+				<div class="chat__bubble__loading_dot">
+				</div>
+			</div>
+		</div> -->
+	</div>
+	<div class="chat__input__container" ng-show="activeConversation.question.exists">
+		<div class="chat__input">
+			<input 
+				type="text" 
+				name="{{activeConversation.question.variable}}" 
+				placeholder="{{activeConversation.question.input}}" 
+				class="chat__input__div chat__input__field" 
+				ng-if="activeConversation.question.input"
+				ng-model="variables[activeConversation.question.variable]"
+				/>
+			<div 
+				class="chat__input__div chat__input__text" 
+				ng-if="activeConversation.question.text.length"
+				ng-repeat="text in activeConversation.question.text">
+				{{text}}
+			</div>
+			<div 
+				class="chat__input__div chat__input__icon" 
+				ng-if="activeConversation.question.input">
+				<img src="send.svg" />
+			</div>
+		</div>
+	</div>
+</div>
+<div class="lecture" ng-if="collapse">
+<span id="typed"></span>
+</div>
+</body>
+</html>
